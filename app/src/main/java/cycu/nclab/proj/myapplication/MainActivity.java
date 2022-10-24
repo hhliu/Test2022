@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     TextView tx;
     Button bt;
 
@@ -20,14 +20,12 @@ public class MainActivity extends AppCompatActivity {
 
         tx = findViewById(R.id.textView);
         bt = findViewById(R.id.button);
-        bt.setOnClickListener(myClickListener);
+        bt.setOnClickListener(this);
     }
 
-    // 設置監聽的三種方式：方法二
-    private View.OnClickListener myClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            tx.setTextColor(Color.GREEN);
-        }
-    };
+    // 設置監聽的三種方式：方法三
+    @Override
+    public void onClick(View view) {
+        tx.setTextColor(Color.CYAN);
+    }
 }
