@@ -20,9 +20,14 @@ public class MainActivity extends AppCompatActivity {
 
         tx = findViewById(R.id.textView);
         bt = findViewById(R.id.button);
+        bt.setOnClickListener(myClickListener);
     }
 
-    public void onButtonClick(View view){
-        tx.setTextColor(Color.RED);
-    }
+    // 設置監聽的三種方式：方法二
+    private View.OnClickListener myClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            tx.setTextColor(Color.GREEN);
+        }
+    };
 }
